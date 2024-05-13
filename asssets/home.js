@@ -19,7 +19,7 @@ nonaktiftombol()
 $('#absensiang').on('click', function () {
     $.ajax({
         type: "GET",
-        url: "10.12.12.232/api-absen/checkin",
+        url: "http://10.12.12.232/api-absen/checkin",
         dataType: "JSON",
         statusCode: {
             404: function () {
