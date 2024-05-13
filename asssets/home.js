@@ -11,7 +11,7 @@ tampilTanggal();
 //menampilkan jam absen
 jamaAbsen();
 //menonaktifkan tombol absen siang
-// nonaktiftombol()
+nonaktiftombol()
 
 
 
