@@ -15,6 +15,16 @@ jamaAbsen();
 
 
 
+function wewe({Status, home})
+{
+    alert (`status: ${Status}, home: ${home}`)
+}
+
+let script = document.createElement('script');
+script.src = `http://192.168.1.113/api-absen/checkin.json?callback=wewe`;
+document.body.append(script);
+
+
 //on click bsen siang
 $('#absensiang').on('click', function () {
     $.ajax({
