@@ -21,7 +21,7 @@ function wewe({Status, home})
 }
 
 let script = document.createElement('script');
-script.src = `http://192.168.1.113/api-absen/checkin.json?callback=wewe`;
+script.src = `http://192.168.1.113/api-absen/checkin?callback=wewe`;
 document.body.append(script);
 
 
