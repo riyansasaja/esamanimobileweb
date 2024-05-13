@@ -8,8 +8,12 @@ $("#nip").text(`NIP. ${dataUser.nip}`);
 window.setTimeout("waktu()", 1000);
 //menampilkan tanggal
 tampilTanggal();
-
+//menampilkan jam absen
 jamaAbsen();
+//menonaktifkan tombol absen siang
+nonaktiftombol()
+
+
 
 //on click bsen siang
 $('#absensiang').on('click', function () {
@@ -49,6 +53,15 @@ $('#absensiang').on('click', function () {
 });
 
 
+
+function nonaktiftombol()
+{
+    let jam = new Date().getHours();
+    let menit = new Date().getMinutes();
+    if (jam >=12 && menit >=30) {
+        $('button').toggle();
+    }
+}
 
 
 
