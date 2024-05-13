@@ -29,7 +29,7 @@ $('#btn_masuk').on('click', function () {
                     text: 'Nip Tidak Terdaftar, Silahkan hubungi admin!',
                     icon: "error"
                   });
-                  return;
+              
             }
         },
         success: function (data, status, xhr) {
