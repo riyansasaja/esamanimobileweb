@@ -30,9 +30,8 @@ $('#absensiang').on('click', function () {
     $.ajax({
         type: "GET",
         // url: "http://10.12.12.232/api-absen/checkin",
-        url: "https://192.168.1.113/api-absen/checkin",
-        dataType: "JSONP",
-        jsonp : "callback",
+        url: "http://192.168.1.113/api-absen/checkin",
+        dataType: "JSON",
         statusCode: {
             404: function () {
                 Swal.fire({
