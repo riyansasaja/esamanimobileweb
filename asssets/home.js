@@ -26,44 +26,44 @@ document.body.append(script);
 
 
 //on click bsen siang
-$('#absensiang').on('click', function () {
-    $.ajax({
-        type: "GET",
-        // url: "http://10.12.12.232/api-absen/checkin",
-        url: "https://192.168.1.113/api-absen/checkin",
-        dataType: "JSONP",
-        jsonp : "callback",
-        statusCode: {
-            404: function () {
-                Swal.fire({
-                    title: "Ops!",
-                    text: 'Anda Tidak Terhubung dengan WIFI PTA',
-                    icon: "error"
-                  });
-            }
-        },
-        success: function (response) {
-            console.log(response)
-            $.ajax({
-                type: "POST",
-                url: "https://develop.pta-manado.go.id/api-absen/absensiang",
-                data: {
-                    finger : dataUser.finger
-                },
-                dataType: "JSON",
-                success: function (res) {
-                    Swal.fire({
-                        title: "Success!",
-                        text: "data Absen berhasil direkam",
-                        icon: "success"
-                      });
-                      jamaAbsen();
+// $('#absensiang').on('click', function () {
+//     $.ajax({
+//         type: "GET",
+//         // url: "http://10.12.12.232/api-absen/checkin",
+//         url: "https://192.168.1.113/api-absen/checkin",
+//         dataType: "JSONP",
+//         jsonp : "callback",
+//         statusCode: {
+//             404: function () {
+//                 Swal.fire({
+//                     title: "Ops!",
+//                     text: 'Anda Tidak Terhubung dengan WIFI PTA',
+//                     icon: "error"
+//                   });
+//             }
+//         },
+//         success: function (response) {
+//             console.log(response)
+//             $.ajax({
+//                 type: "POST",
+//                 url: "https://develop.pta-manado.go.id/api-absen/absensiang",
+//                 data: {
+//                     finger : dataUser.finger
+//                 },
+//                 dataType: "JSON",
+//                 success: function (res) {
+//                     Swal.fire({
+//                         title: "Success!",
+//                         text: "data Absen berhasil direkam",
+//                         icon: "success"
+//                       });
+//                       jamaAbsen();
                       
-                }
-            });
-        }
-    });
-});
+//                 }
+//             });
+//         }
+//     });
+// });
 
 
 
