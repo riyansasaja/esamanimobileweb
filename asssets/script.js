@@ -40,7 +40,7 @@ $('#btn_masuk').on('click', function () {
               });
               let session_login = JSON.stringify(data)
               window.sessionStorage.setItem("session_login", session_login);
-              return document.location.href = 'home.html';
+              document.location.href = 'home.html';
         }
     });
 
