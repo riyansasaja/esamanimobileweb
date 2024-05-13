@@ -14,6 +14,13 @@ jamaAbsen();
 // nonaktiftombol()
 
 
+//test ping js
+ping('https://google.com/').then(function(delta) {
+    console.log('Ping time was ' + String(delta) + ' ms');
+}).catch(function(err) {
+    console.error('Could not ping remote URL', err);
+});
+
 
 function wewe({Status, home})
 {
