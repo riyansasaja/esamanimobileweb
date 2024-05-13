@@ -20,7 +20,7 @@ $('#absensiang').on('click', function () {
     $.ajax({
         type: "GET",
         url: "http://10.12.12.232/api-absen/checkin",
-        dataType: "JSON",
+        dataType: "JSONP",
         statusCode: {
             404: function () {
                 Swal.fire({
