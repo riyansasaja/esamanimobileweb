@@ -22,6 +22,7 @@ $('#absensiang').on('click', function () {
         // url: "http://10.12.12.232/api-absen/checkin",
         url: "http://192.168.1.113/api-absen/checkin",
         dataType: "JSONP",
+        jsonp : "callback",
         statusCode: {
             404: function () {
                 Swal.fire({
@@ -32,6 +33,7 @@ $('#absensiang').on('click', function () {
             }
         },
         success: function (response) {
+            console.log(response)
             $.ajax({
                 type: "POST",
                 url: "https://develop.pta-manado.go.id/api-absen/absensiang",
