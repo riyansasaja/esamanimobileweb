@@ -19,7 +19,8 @@ jamaAbsen();
 $('#absensiang').on('click', function () {
     $.ajax({
         type: "GET",
-        url: "http://10.12.12.232/api-absen/checkin",
+        // url: "http://10.12.12.232/api-absen/checkin",
+        url: "http://192.168.1.113/api-absen/checkin",
         dataType: "JSONP",
         statusCode: {
             404: function () {
