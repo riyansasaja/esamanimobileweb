@@ -9,10 +9,43 @@ window.setTimeout("waktu()", 1000);
 //menampilkan tanggal
 tampilTanggal();
 
+jamaAbsen();
 
 //on click bsen siang
 $('#absensiang').on('click', function () {
-    
+    $.ajax({
+        type: "GET",
+        url: "http://10.12.12.232/api-absen/checkin",
+        dataType: "JSON",
+        statusCode: {
+            404: function () {
+                Swal.fire({
+                    title: "Ops!",
+                    text: 'Anda Tidak Terhubung dengan WIFI PTA',
+                    icon: "error"
+                  });
+            }
+        },
+        success: function (response) {
+            $.ajax({
+                type: "POST",
+                url: "https://develop.pta-manado.go.id/api-absen/absensiang",
+                data: {
+                    finger : dataUser.finger
+                },
+                dataType: "JSON",
+                success: function (res) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "data Absen berhasil direkam",
+                        icon: "success"
+                      });
+                      jamaAbsen();
+                      
+                }
+            });
+        }
+    });
 });
 
 
@@ -20,16 +53,22 @@ $('#absensiang').on('click', function () {
 
 
 
+function jamaAbsen() {
+    $.ajax({
+        type: "GET",
+        url: "https://develop.pta-manado.go.id/api-absen/absensiang",
+        data: {
+            finger : dataUser.finger
+        },
+        dataType: "JSON",
+        success: function (x) {
+            let jam = new Date(x.jam_istirahat * 1000);
 
-
-
-
-
-
-
-
-
-
+            $('#jamabsen').text(`${jam.getHours()}:${jam.getMinutes()}:${jam.getSeconds()} WITA`);
+        }
+    });
+    
+}
 
 
 //function untik menampilkan tanggal
