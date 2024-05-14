@@ -35,13 +35,18 @@ $('#btn_masuk').on('click', function () {
         },
         success: function (data, status, xhr) {
             Swal.fire({
-                title: "Ops!",
-                text: 'tes',
-                icon: "success"
+                title: "Welcome Back!!",
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: "OK",
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    let session_login = JSON.stringify(data)
+                    window.sessionStorage.setItem("session_login", session_login);
+                    document.location.href = 'home.html';
+                } 
               });
-              let session_login = JSON.stringify(data)
-              window.sessionStorage.setItem("session_login", session_login);
-              document.location.href = 'home.html';
         }
     });
 

@@ -11,68 +11,31 @@ tampilTanggal();
 //menampilkan jam absen
 jamaAbsen();
 //menonaktifkan tombol absen siang
-// nonaktiftombol()
+nonaktiftombol()
 
-
-//test ping js
-ping('https://google.com/').then(function(delta) {
-    console.log('Ping time was ' + String(delta) + ' ms');
-}).catch(function(err) {
-    console.error('Could not ping remote URL', err);
-});
-
-
-function wewe({Status, home})
-{
-    alert (`status: ${Status}, home: ${home}`)
-}
-
-// let script = document.createElement('script');
-// script.src = `http://192.168.1.113/api-absen/checkin?callback=wewe`;
-// document.body.append(script);
-
-
-//on click bsen siang
+//on click absen siang
 $('#absensiang').on('click', function () {
     $.ajax({
-        type: "GET",
-        // url: "http://10.12.12.232/api-absen/checkin",
-        url: "https://192.168.1.113/api-absen/checkin",
-        dataType: "JSON",
-        statusCode: {
-            404: function () {
-                Swal.fire({
-                    title: "Ops!",
-                    text: 'Anda Tidak Terhubung dengan WIFI PTA',
-                    icon: "error"
-                  });
-            }
+        type: "POST",
+        url: "https://develop.pta-manado.go.id/api-absen/absensiang",
+        data: {
+            finger : dataUser.finger
         },
-        success: function (response) {
-            console.log(response)
-            $.ajax({
-                type: "POST",
-                url: "https://develop.pta-manado.go.id/api-absen/absensiang",
-                data: {
-                    finger : dataUser.finger
-                },
-                dataType: "JSON",
-                success: function (res) {
-                    Swal.fire({
-                        title: "Success!",
-                        text: "data Absen berhasil direkam",
-                        icon: "success"
-                      });
-                      jamaAbsen();
-                      
-                }
-            });
+        dataType: "JSON",
+        success: function (res) {
+            Swal.fire({
+                title: "Success!",
+                text: "data Absen berhasil direkam",
+                icon: "success"
+              });
+              jamaAbsen();
+              
         }
     });
 });
 
 
-
+//fungsi menonaktifkan tombol
 function nonaktiftombol()
 {
     let jam = new Date().getHours();
@@ -82,9 +45,7 @@ function nonaktiftombol()
     }
 }
 
-
-
-
+//fungsi menjalankan jam absen
 function jamaAbsen() {
     $.ajax({
         type: "GET",
@@ -103,7 +64,7 @@ function jamaAbsen() {
 }
 
 
-//function untik menampilkan tanggal
+//function untuk menampilkan tanggal
 function tampilTanggal() {
 
 //mengambil lhari tanggal bulan untuk ditampilkan 
